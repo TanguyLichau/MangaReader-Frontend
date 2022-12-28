@@ -1,6 +1,7 @@
 <script>
   let valeur = "";
   export let mode;
+  export let search;
 </script>
 
 <div id="container">
@@ -25,7 +26,7 @@
     >
   </div>
   <h1>LIST</h1>
-  <input type="text" />
+  <input type="text" bind:value={search} />
 </div>
 
 <style>
