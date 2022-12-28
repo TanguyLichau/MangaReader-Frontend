@@ -2,7 +2,7 @@
   // fake {_id: '639ef90b3cb2d827312c8044', name: 'test', lastChapterRead: 10, __v: 0}
   // pour changer une valeur $mangasListStore[0].name
   // pour ajouter mangasListStore.update((current) => return [...current, nouvel objet])
-
+  // ne pas oublier de faire dockerfile pour les deux projets
   import MangaList from "./mangaList.svelte";
 
   /*

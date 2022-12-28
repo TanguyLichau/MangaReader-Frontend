@@ -33,4 +33,11 @@
   h1 {
     text-align: center;
   }
+  input {
+    border: 1px solid lightgrey;
+    outline: none;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+  }
 </style>
