@@ -7,20 +7,20 @@
 <div id="container">
   <div id="buttons">
     <button
-      on:focusout={() => {
-        mode = 0;
+      on:keyup={(e) => {
+        if (e.key === "Escape") mode = 0;
       }}
       on:click={() => (mode = 1)}>1</button
     >
     <button
-      on:focusout={() => {
-        mode = 0;
+      on:keyup={(e) => {
+        if (e.key === "Escape") mode = 0;
       }}
       on:click={() => (mode = 2)}>2</button
     >
     <button
-      on:focusout={() => {
-        mode = 0;
+      on:keyup={(e) => {
+        if (e.key === "Escape") mode = 0;
       }}
       on:click={() => (mode = 3)}>3</button
     >
@@ -30,6 +30,12 @@
 </div>
 
 <style>
+  #container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid black;
+  }
   h1 {
     text-align: center;
   }
