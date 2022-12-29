@@ -8,6 +8,7 @@
   });
   let mode;
   let search = "";
+
   function filterMangas(filter, mangalist) {
     const filteredNames = mangalist.filter((i) =>
       i.name.toLowerCase().includes(filter.toLowerCase())

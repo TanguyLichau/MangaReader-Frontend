@@ -1,35 +1,8 @@
 <script>
-  import { compute_slots } from "svelte/internal";
-
-  let valeur = "";
   export let mode;
   export let search;
 
-  function addManga() {
-    const div = document.getElementById("container");
-
-    let inputNom = document.createElement("input");
-    inputNom.setAttribute("type", "text");
-    inputNom.setAttribute("placeholder", "Name");
-
-    let inputChapitre = document.createElement("input");
-    inputChapitre.setAttribute("type", "text");
-    inputChapitre.setAttribute("placeholder", "Chapter");
-
-    let btn = document.createElement("button");
-    btn.innerHTML = "Click Me";
-    btn.addEventListener("click", function () {
-      console.log(inputNom.value);
-      console.log(inputChapitre.value);
-      div.removeChild(inputNom);
-      div.removeChild(inputChapitre);
-      div.removeChild(btn);
-    });
-
-    div.appendChild(inputNom);
-    div.appendChild(inputChapitre);
-    div.appendChild(btn);
-  }
+  function addManga() {}
 </script>
 
 <div id="container">

@@ -1,4 +1,5 @@
 <script>
+  import mangasListStore from "./mangaStores.js";
   export let manga;
   export let mode;
   let modif = false;
@@ -6,13 +7,22 @@
   function modifyManga() {
     let nom = document.getElementById("nomManga").value;
     let chapitre = document.getElementById("chapitreManga").value;
-    console.log("nom : " + nom + " chapitre : " + chapitre);
-    console.log(manga._id);
-    modif = false;
-    mode = false;
+
+    modif = mode = false;
+    mangasListStore.update((current) => {
+      return current.filter((value) => {
+        if (value._id == manga._id) {
+          value.name = nom;
+          value.lastChapterRead = chapitre;
+        }
+        return value;
+      });
+    });
   }
   function deleteManga() {
-    console.log(manga._id);
+    mangasListStore.update((current) => {
+      return current.filter((value) => value._id != manga._id);
+    });
   }
 </script>
 
