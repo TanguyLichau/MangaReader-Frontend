@@ -3,7 +3,7 @@
   export let mode;
   let modif = false;
 
-  function saveManga() {
+  function modifyManga() {
     let nom = document.getElementById("nomManga").value;
     let chapitre = document.getElementById("chapitreManga").value;
     console.log("nom : " + nom + " chapitre : " + chapitre);
@@ -18,9 +18,7 @@
 
 <p>
   <span>
-    {#if mode == 1}
-      <button>ajouter</button>
-    {:else if mode == 2}
+    {#if mode == 2}
       <button on:click={deleteManga}>supprimer</button>
     {:else if mode == 3}
       <button
@@ -35,7 +33,7 @@
     {:else}
       <input id="nomManga" type="text" value={manga.name} />
       <input id="chapitreManga" type="text" value={manga.lastChapterRead} />
-      <button id="modifManga" on:click={saveManga}>save</button>
+      <button id="modifManga" on:click={modifyManga}>save</button>
     {/if}
   </span>
 </p>
