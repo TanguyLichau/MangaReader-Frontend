@@ -1,6 +1,7 @@
 <script>
   export let mode;
   export let search;
+  export let ajout;
 
   function addManga() {}
 </script>
@@ -12,7 +13,9 @@
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
-        on:click={addManga}>1</button
+        on:click={() => {
+          ajout = true;
+        }}>1</button
       >
       <button
         on:keyup={(e) => {
@@ -35,6 +38,7 @@
 <style>
   #container {
     border-bottom: 3px solid black;
+    margin-bottom: 10px;
   }
   #container-line {
     display: flex;
