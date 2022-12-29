@@ -18,5 +18,5 @@
 
 <Header bind:mode bind:search />
 {#each filterMangas(search, mangalist) as manga}
-  <Manga {mode} {manga} />
+  <Manga bind:mode {manga} />
 {/each}
