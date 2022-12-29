@@ -33,5 +33,4 @@ const mangasListStore = writable([
     __v: 0,
   },
 ]);
-//console.log("test");
 export default mangasListStore;
