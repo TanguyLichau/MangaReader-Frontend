@@ -2,7 +2,7 @@
   import Manga from "./manga.svelte";
   import mangasListStore from "./mangaStores.js";
   import Header from "./header.svelte";
-  import { createManga, getAllMangas } from "./apiConnection";
+  import { createManga } from "./apiConnection";
   let mangalist = [];
   mangasListStore.subscribe((data) => {
     mangalist = data;

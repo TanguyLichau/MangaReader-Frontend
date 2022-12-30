@@ -37,6 +37,7 @@
       <button
         on:click={() => {
           modif = true;
+          mode = 0;
         }}>modifier</button
       >
     {/if}
