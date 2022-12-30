@@ -1,4 +1,5 @@
 <script>
+  import { updateMangaAPI, deleteMangaAPI } from "./apiConnection";
   import mangasListStore from "./mangaStores.js";
   export let manga;
   export let mode;
@@ -18,11 +19,13 @@
         return value;
       });
     });
+    updateMangaAPI(manga);
   }
   function deleteManga() {
     mangasListStore.update((current) => {
       return current.filter((value) => value._id != manga._id);
     });
+    deleteMangaAPI(manga._id);
   }
 </script>
 

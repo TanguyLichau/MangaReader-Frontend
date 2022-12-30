@@ -2,6 +2,7 @@
   import Manga from "./manga.svelte";
   import mangasListStore from "./mangaStores.js";
   import Header from "./header.svelte";
+  import { createManga, getAllMangas } from "./apiConnection";
   let mangalist = [];
   mangasListStore.subscribe((data) => {
     mangalist = data;
@@ -19,10 +20,7 @@
   function addManga() {
     let nom = document.getElementById("nom manga").value;
     let chapitre = document.getElementById("chapitre manga").value;
-    /*
-    mangasListStore.update((current) => {
-      return [...current, { name: nom, lastChapterRead: chapitre }];
-    });*/
+    createManga({ name: nom, lastChapterRead: chapitre });
     ajout = false;
   }
 </script>

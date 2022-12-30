@@ -2,8 +2,6 @@
   export let mode;
   export let search;
   export let ajout;
-
-  function addManga() {}
 </script>
 
 <div id="container">
@@ -15,19 +13,19 @@
         }}
         on:click={() => {
           ajout = true;
-        }}>1</button
+        }}>Ajouter</button
       >
       <button
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
-        on:click={() => (mode = 2)}>2</button
+        on:click={() => (mode = 2)}>Supprimer</button
       >
       <button
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
-        on:click={() => (mode = 3)}>3</button
+        on:click={() => (mode = 3)}>Modifier</button
       >
     </div>
     <h1>LIST</h1>
