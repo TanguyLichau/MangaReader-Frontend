@@ -32,14 +32,18 @@
 <p>
   <span>
     {#if mode == 2}
-      <button on:click={deleteManga}>supprimer</button>
+      <button on:click={deleteManga}>
+        <img src="images/trash.svg" alt="delete" />
+      </button>
     {:else if mode == 3}
       <button
         on:click={() => {
           modif = true;
           mode = 0;
-        }}>modifier</button
+        }}
       >
+        <img src="images/scissors.svg" alt="modify" />
+      </button>
     {/if}
     {#if !modif}
       {manga.name}

@@ -13,20 +13,25 @@
         }}
         on:click={() => {
           ajout = true;
-        }}>Ajouter</button
-      >
+        }}
+        ><img src="images/plus.svg" alt="add" />
+      </button>
       <button
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
-        on:click={() => (mode = 2)}>Supprimer</button
+        on:click={() => (mode = 2)}
       >
+        <img src="images/x.svg" alt="delete" />
+      </button>
       <button
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
-        on:click={() => (mode = 3)}>Modifier</button
+        on:click={() => (mode = 3)}
       >
+        <img src="images/more-horizontal.svg" alt="modify" />
+      </button>
     </div>
     <h1>LIST</h1>
     <input id="SearchBar" type="text" bind:value={search} />
