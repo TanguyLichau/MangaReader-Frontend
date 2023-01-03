@@ -1,11 +1,16 @@
 <script>
   import Manga from "./manga.svelte";
+  import jwtStore from "./authStore";
   import mangasListStore from "./mangaStores.js";
   import Header from "./header.svelte";
   import { createManga } from "./apiConnection";
   let mangalist = [];
+  let jwtItem;
   mangasListStore.subscribe((data) => {
     mangalist = data;
+  });
+  jwtStore.subscribe((data) => {
+    jwtItem = data;
   });
   let mode;
   let search = "";
@@ -20,7 +25,7 @@
   function addManga() {
     let nom = document.getElementById("nom manga").value;
     let chapitre = document.getElementById("chapitre manga").value;
-    createManga({ name: nom, lastChapterRead: chapitre });
+    createManga({ name: nom, lastChapterRead: chapitre }, jwtItem);
     ajout = false;
   }
 </script>

@@ -1,12 +1,10 @@
-const API_URL = "http://192.168.1.54:3000";
-const USERNAME = "tanguy";
-const PASSWORD = "mdp";
+const API_URL = "http://localhost:3000";
 
 function fetchJSON(response) {
   return response.json();
 }
 
-export async function getJWT() {
+export async function getJWT(user, pswd) {
   try {
     const response = await fetch(`${API_URL}/users/login`, {
       method: "POST",
@@ -14,8 +12,8 @@ export async function getJWT() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: USERNAME,
-        password: PASSWORD,
+        username: user,
+        password: pswd,
       }),
     });
     return fetchJSON(response);
@@ -33,8 +31,8 @@ export async function getAllMangas() {
   }
 }
 
-export async function createManga(manga) {
-  const JWT_TOKEN = await getJWT();
+export async function createManga(manga, jwt) {
+  const JWT_TOKEN = jwt;
   try {
     const response = await fetch(`${API_URL}/manga`, {
       method: "POST",
@@ -53,8 +51,8 @@ export async function createManga(manga) {
   }
 }
 
-export async function updateMangaAPI(manga) {
-  const JWT_TOKEN = await getJWT();
+export async function updateMangaAPI(manga, jwt) {
+  const JWT_TOKEN = jwt;
   try {
     const response = await fetch(`${API_URL}/manga/${manga._id}`, {
       method: "PUT",
@@ -73,8 +71,8 @@ export async function updateMangaAPI(manga) {
   }
 }
 
-export async function deleteMangaAPI(mangaId) {
-  const JWT_TOKEN = await getJWT();
+export async function deleteMangaAPI(mangaId, jwt) {
+  const JWT_TOKEN = jwt;
   try {
     await fetch(`${API_URL}/manga/${mangaId}`, {
       method: "DELETE",

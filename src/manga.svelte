@@ -1,9 +1,14 @@
 <script>
+  import jwtStore from "./authStore";
   import { updateMangaAPI, deleteMangaAPI } from "./apiConnection";
   import mangasListStore from "./mangaStores.js";
   export let manga;
   export let mode;
   let modif = false;
+  let jwtItem;
+  jwtStore.subscribe((data) => {
+    jwtItem = data;
+  });
 
   function modifyManga() {
     let nom = document.getElementById("nomManga").value;
@@ -19,13 +24,13 @@
         return value;
       });
     });
-    updateMangaAPI(manga);
+    updateMangaAPI(manga, jwtItem);
   }
   function deleteManga() {
     mangasListStore.update((current) => {
       return current.filter((value) => value._id != manga._id);
     });
-    deleteMangaAPI(manga._id);
+    deleteMangaAPI(manga._id, jwtItem);
   }
 </script>
 
@@ -42,7 +47,7 @@
           mode = 0;
         }}
       >
-        <img src="images/scissors.svg" alt="modify" />
+        <img src="images/edit-2.svg" alt="modify" />
       </button>
     {/if}
     {#if !modif}
