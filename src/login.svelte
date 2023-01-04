@@ -1,8 +1,8 @@
 <script>
   import { getJWT } from "./apiConnection";
   import jwtStore from "./authStore";
-  let username = "";
-  let password = "";
+  let username = "tanguy";
+  let password = "mdp";
   let jwt;
   export let isLogged = false;
   async function login() {

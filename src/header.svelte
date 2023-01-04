@@ -17,8 +17,9 @@
         bind:value={search}
       />
     </div>
-    <div class="header">
+    <div id="buttons" class="header">
       <button
+        class="button"
         on:keyup={(e) => {
           if (e.key === "Escape") ajout = false;
         }}
@@ -28,6 +29,7 @@
         ><img src="images/plus.svg" alt="add" />
       </button>
       <button
+        class="button"
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
@@ -36,6 +38,7 @@
         <img src="images/x.svg" alt="delete" />
       </button>
       <button
+        class="button"
         on:keyup={(e) => {
           if (e.key === "Escape") mode = 0;
         }}
@@ -48,9 +51,13 @@
 </div>
 
 <style>
+  .button {
+    font-size: larger;
+  }
   #container {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     background-color: #263238;
+    margin-top: 0;
   }
   #container-line {
     display: flex;
@@ -63,7 +70,7 @@
   #SearchBar {
     border: 1px solid lightgrey;
     outline: none;
-    background-color: transparent;
+    background-color: white;
     padding: 10px;
     border-radius: 5px;
   }
@@ -74,5 +81,10 @@
     overflow: hidden;
     white-space: nowrap;
     color: white;
+    padding-left: 15px;
+  }
+  #buttons {
+    padding-right: 15px;
+    text-align: right;
   }
 </style>

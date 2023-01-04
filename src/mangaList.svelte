@@ -38,11 +38,24 @@
     <button on:click={addManga}>ajout</button>
   </div>
 {/if}
-{#each filterMangas(search, mangalist) as manga}
-  <Manga bind:mode {manga} />
-{/each}
+<div id="flex-container">
+  {#each filterMangas(search, mangalist) as manga}
+    <div id="flex-item">
+      <Manga bind:mode {manga} />
+    </div>
+  {/each}
+</div>
 
 <style>
+  #flex-item {
+  }
+  #flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
   #ajout {
     text-align: center;
   }
