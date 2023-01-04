@@ -6,10 +6,21 @@
 
 <div id="container">
   <div id="container-line">
-    <div id="buttons">
+    <div id="title" class="header">
+      <h1>Manga Reader</h1>
+    </div>
+    <div class="header">
+      <input
+        id="SearchBar"
+        type="text"
+        autocomplete="off"
+        bind:value={search}
+      />
+    </div>
+    <div class="header">
       <button
         on:keyup={(e) => {
-          if (e.key === "Escape") mode = 0;
+          if (e.key === "Escape") ajout = false;
         }}
         on:click={() => {
           ajout = true;
@@ -33,15 +44,13 @@
         <img src="images/more-horizontal.svg" alt="modify" />
       </button>
     </div>
-    <h1>LIST</h1>
-    <input id="SearchBar" type="text" bind:value={search} />
   </div>
 </div>
 
 <style>
   #container {
-    border-bottom: 3px solid black;
     margin-bottom: 10px;
+    background-color: #263238;
   }
   #container-line {
     display: flex;
@@ -57,5 +66,13 @@
     background-color: transparent;
     padding: 10px;
     border-radius: 5px;
+  }
+  .header {
+    width: 200px;
+  }
+  #title {
+    overflow: hidden;
+    white-space: nowrap;
+    color: white;
   }
 </style>

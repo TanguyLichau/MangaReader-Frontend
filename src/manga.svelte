@@ -63,12 +63,16 @@
 
 <style>
   span {
-    background-color: yellowgreen;
-    border-radius: 4px;
+    background-color: #a5dfcc;
+    border-radius: 24px;
     padding: 11px;
   }
   p {
     text-align: center;
     margin: 30px;
+    font-size: larger;
+  }
+  span:hover {
+    background-color: black;
   }
 </style>

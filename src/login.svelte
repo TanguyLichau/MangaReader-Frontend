@@ -19,60 +19,77 @@
   }
 </script>
 
-<form on:submit|preventDefault={login} autocomplete="off">
-  <label for="username">Username:</label>
-  <input type="text" id="username" bind:value={username} />
+<form class="box" on:submit|preventDefault={login} autocomplete="off">
+  <h1>Sign In</h1>
+  <label id="username" for="username" />
+  <input
+    type="text"
+    id="username"
+    placeholder="Username"
+    bind:value={username}
+  />
   <br />
-  <label for="password">Password:</label>
-  <input type="password" id="password" bind:value={password} />
+  <label id="password" for="password" />
+  <input
+    type="password"
+    id="password"
+    placeholder="Password"
+    bind:value={password}
+  />
   <br />
   <button type="submit">Log In</button>
 </form>
 
 <style>
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 30%;
-    margin: 50px auto 0;
-    padding: 20px;
+  .box {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
-
-  label {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-
-  input {
-    width: 100%;
-    height: 35px;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border 0.3s;
-  }
-
-  input:focus {
-    border: 1px solid #0079d3;
-    outline: none;
-  }
-
-  button[type="submit"] {
-    margin-top: 20px;
-    width: 100%;
-    height: 40px;
-    background-color: #0079d3;
-    border: none;
-    border-radius: 5px;
+  .box h1 {
     color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    text-transform: uppercase;
+    font-weight: 500;
   }
-
-  button[type="submit"]:hover {
-    background-color: #006bb6;
+  .box input[type="text"],
+  .box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  .box input[type="text"]:focus,
+  .box input[type="password"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+  }
+  .box button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .box button[type="submit"]:hover {
+    background: #2ecc71;
   }
 </style>
