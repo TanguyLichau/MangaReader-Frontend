@@ -34,36 +34,53 @@
   }
 </script>
 
-<p>
-  <span>
-    {#if mode == 2}
-      <button on:click={deleteManga}>
-        <img src="images/trash.svg" alt="delete" />
-      </button>
-    {:else if mode == 3}
-      <button
-        on:click={() => {
-          modif = true;
-          mode = 0;
-        }}
-      >
-        <img src="images/edit-2.svg" alt="modify" />
-      </button>
-    {/if}
-    {#if !modif}
-      {manga.name}
-      {manga.lastChapterRead}
-    {:else}
-      <input id="nomManga" type="text" value={manga.name} />
-      <input id="chapitreManga" type="text" value={manga.lastChapterRead} />
-      <button id="modifManga" on:click={modifyManga}>save</button>
-    {/if}
-  </span>
-</p>
+<div id="flex-container">
+  <div id="flex-item">
+    <img id="cover" src="images/anime.png" alt="yo" />
+    <p>
+      <span>
+        {#if mode == 2}
+          <button on:click={deleteManga}>
+            <img src="images/trash.svg" alt="delete" />
+          </button>
+        {:else if mode == 3}
+          <button
+            on:click={() => {
+              modif = true;
+              mode = 0;
+            }}
+          >
+            <img src="images/edit-2.svg" alt="modify" />
+          </button>
+        {/if}
+        {#if !modif}
+          {manga.name}
+          {manga.lastChapterRead}
+        {:else}
+          <input id="nomManga" type="text" value={manga.name} />
+          <input id="chapitreManga" type="text" value={manga.lastChapterRead} />
+          <button id="modifManga" on:click={modifyManga}>save</button>
+        {/if}
+      </span>
+    </p>
+  </div>
+</div>
 
 <style>
+  #flex-container {
+    margin-bottom: 25px;
+  }
+  #cover {
+    width: 20%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   span {
-    background-color: #a5dfcc;
+    background-color: #adb5bd;
     border-radius: 24px;
     padding: 11px;
   }
@@ -73,6 +90,10 @@
     font-size: larger;
   }
   span:hover {
-    background-color: black;
+    font-size: x-large;
+  }
+  button {
+    background: none;
+    border: none;
   }
 </style>
