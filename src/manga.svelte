@@ -27,6 +27,7 @@
     updateMangaAPI(manga, jwtItem);
   }
   function deleteManga() {
+    modif = mode = false;
     mangasListStore.update((current) => {
       return current.filter((value) => value._id != manga._id);
     });
@@ -36,7 +37,7 @@
 
 <div id="flex-container">
   <div id="flex-item">
-    <img id="cover" src="images/anime.png" alt="yo" />
+    <img id="cover" src={manga.coverUrl} alt="cover" />
     <p>
       <span>
         {#if mode == 2}
@@ -54,7 +55,7 @@
           </button>
         {/if}
         {#if !modif}
-          {manga.name}
+          {manga.name} :
           {manga.lastChapterRead}
         {:else}
           <input id="nomManga" type="text" value={manga.name} />

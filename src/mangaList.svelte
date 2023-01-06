@@ -4,6 +4,8 @@
   import mangasListStore from "./mangaStores.js";
   import Header from "./header.svelte";
   import { createManga } from "./apiConnection";
+
+  export let isLogged;
   let mangalist = [];
   let jwtItem;
   mangasListStore.subscribe((data) => {
@@ -30,7 +32,7 @@
   }
 </script>
 
-<Header bind:ajout bind:mode bind:search />
+<Header bind:isLogged bind:ajout bind:mode bind:search />
 {#if ajout}
   <div id="ajout">
     <input id="nom manga" placeholder="Name..." />
@@ -48,13 +50,14 @@
 
 <style>
   #flex-item {
+    width: 800px;
+    height: auto;
+    margin: auto;
   }
   #flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
   }
   #ajout {
     text-align: center;

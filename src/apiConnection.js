@@ -43,6 +43,7 @@ export async function createManga(manga, jwt) {
       body: JSON.stringify({
         name: manga.name,
         lastChapterRead: manga.lastChapterRead,
+        coverUrl: "",
       }),
     });
     return fetchJSON(response);
