@@ -11,7 +11,7 @@
       jwt = await getJWT(username, password);
       if (jwt) {
         isLogged = true;
-        localStorage.setItem("jwt", jwt.token);
+        localStorage.setItem("jwt", jwt);
         jwtStore.set(jwt);
       }
     } catch (error) {
