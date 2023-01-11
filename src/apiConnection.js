@@ -44,6 +44,7 @@ export async function createManga(manga, jwt) {
         name: manga.name,
         lastChapterRead: manga.lastChapterRead,
         coverUrl: "",
+        isFavorite: false,
       }),
     });
     return fetchJSON(response);
@@ -64,6 +65,7 @@ export async function updateMangaAPI(manga, jwt) {
       body: JSON.stringify({
         name: manga.name,
         lastChapterRead: manga.lastChapterRead,
+        isFavorite: manga.isFavorite,
       }),
     });
     return fetchJSON(response);
