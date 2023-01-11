@@ -33,6 +33,19 @@
     });
     deleteMangaAPI(manga._id, jwtItem);
   }
+  function modifyFavorite() {
+    let valeur = !manga.isFavorite;
+    console.log(valeur);
+    mangasListStore.update((current) => {
+      return current.filter((value) => {
+        if (value._id == manga._id) {
+          value.isFavorite = valeur;
+        }
+        return value;
+      });
+    });
+    updateMangaAPI(manga, jwtItem);
+  }
 </script>
 
 <div id="flex-container">
@@ -55,6 +68,15 @@
           </button>
         {/if}
         {#if !modif}
+          {#if manga.isFavorite}
+            <div id="heartfull" on:click={modifyFavorite} aria-hidden="true">
+              <img class="hearts" src="images/heart_full.png" alt="heartfull" />
+            </div>
+          {:else}
+            <div id="heart" on:click={modifyFavorite} aria-hidden="true">
+              <img class="hearts" src="images/heart.png" alt="heart" />
+            </div>
+          {/if}
           {manga.name} :
           {manga.lastChapterRead}
         {:else}
@@ -96,5 +118,17 @@
   button {
     background: none;
     border: none;
+  }
+  .hearts {
+    width: 2%;
+    height: 2%;
+  }
+  #heart,
+  #heartfull {
+    background: none;
+    border: none;
+    width: auto;
+    height: auto;
+    display: inline;
   }
 </style>

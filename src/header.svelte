@@ -52,7 +52,7 @@
         on:click={() => {
           localStorage.removeItem("jwt");
           isLogged = false;
-        }}>big bouton</button
+        }}>Logout</button
       >
     </div>
   </div>
