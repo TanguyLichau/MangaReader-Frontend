@@ -35,7 +35,6 @@
   }
   function modifyFavorite() {
     let valeur = !manga.isFavorite;
-    console.log(valeur);
     mangasListStore.update((current) => {
       return current.filter((value) => {
         if (value._id == manga._id) {

@@ -17,12 +17,22 @@
   let mode;
   let search = "";
   let ajout = false;
+  let favoriteMode;
 
-  function filterMangas(filter, mangalist) {
-    const filteredNames = mangalist.filter((i) =>
-      i.name.toLowerCase().includes(filter.toLowerCase())
-    );
-    return filteredNames;
+  function filterMangas(filter, mangalist, favoriteMode) {
+    if (favoriteMode) {
+      const filteredNames = mangalist.filter(
+        (i) =>
+          i.isFavorite === true &&
+          i.name.toLowerCase().includes(filter.toLowerCase())
+      );
+      return filteredNames;
+    } else {
+      const filteredNames = mangalist.filter((i) =>
+        i.name.toLowerCase().includes(filter.toLowerCase())
+      );
+      return filteredNames;
+    }
   }
   function addManga() {
     let nom = document.getElementById("nom manga").value;
@@ -32,7 +42,7 @@
   }
 </script>
 
-<Header bind:isLogged bind:ajout bind:mode bind:search />
+<Header bind:favoriteMode bind:isLogged bind:ajout bind:mode bind:search />
 {#if ajout}
   <div id="ajout">
     <input id="nom manga" placeholder="Name..." />
@@ -41,7 +51,7 @@
   </div>
 {/if}
 <div id="flex-container">
-  {#each filterMangas(search, mangalist) as manga}
+  {#each filterMangas(search, mangalist, favoriteMode) as manga}
     <div id="flex-item">
       <Manga bind:mode {manga} />
     </div>

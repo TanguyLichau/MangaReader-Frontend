@@ -3,6 +3,7 @@
   export let search;
   export let ajout;
   export let isLogged;
+  export let favoriteMode = false;
 </script>
 
 <div id="container">
@@ -53,6 +54,11 @@
           localStorage.removeItem("jwt");
           isLogged = false;
         }}>Logout</button
+      >
+      <button
+        on:click={() => {
+          favoriteMode = !favoriteMode;
+        }}>favorite</button
       >
     </div>
   </div>
