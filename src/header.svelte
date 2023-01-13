@@ -51,7 +51,7 @@
       <button
         id="logout"
         on:click={() => {
-          localStorage.removeItem("jwt");
+          localStorage.removeItem("user");
           isLogged = false;
         }}>Logout</button
       >
