@@ -1,4 +1,5 @@
 const API_URL = "http://localhost:3000";
+const USER_NAME = localStorage.getItem("user");
 
 function fetchJSON(response) {
   return response.json();
@@ -24,7 +25,7 @@ export async function getJWT(user, pswd) {
 
 export async function getAllMangas() {
   try {
-    const response = await fetch(`${API_URL}/manga`);
+    const response = await fetch(`${API_URL}/manga/${USER_NAME}`);
     return fetchJSON(response);
   } catch (error) {
     console.error(error);
@@ -45,6 +46,7 @@ export async function createManga(manga, jwt) {
         lastChapterRead: manga.lastChapterRead,
         coverUrl: "",
         isFavorite: false,
+        creatorName: USER_NAME,
       }),
     });
     return fetchJSON(response);
