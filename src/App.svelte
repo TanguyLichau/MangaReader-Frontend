@@ -1,8 +1,8 @@
 <script>
   import MangaList from "./mangaList.svelte";
   import Login from "./login.svelte";
-  import jwtStore from "./authStore";
   let isLogged;
+  localStorage.removeItem("user");
 </script>
 
 {#if isLogged}

@@ -2,10 +2,12 @@
   import jwtStore from "./authStore";
   import { updateMangaAPI, deleteMangaAPI } from "./apiConnection";
   import mangasListStore from "./mangaStores.js";
+
   export let manga;
   export let mode;
   let modif = false;
   let jwtItem;
+
   jwtStore.subscribe((data) => {
     jwtItem = data;
   });

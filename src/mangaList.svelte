@@ -3,17 +3,25 @@
   import jwtStore from "./authStore";
   import mangasListStore from "./mangaStores.js";
   import Header from "./header.svelte";
-  import { createManga } from "./apiConnection";
+  import { createManga, getAllMangas } from "./apiConnection";
+  import { onMount } from "svelte";
 
   export let isLogged;
   let mangalist = [];
   let jwtItem;
-  mangasListStore.subscribe((data) => {
-    mangalist = data;
+
+  onMount(() => {
+    getAllMangas().then((data) => {
+      mangasListStore.set(data.result);
+    });
+    mangasListStore.subscribe((data) => {
+      mangalist = data;
+    });
+    jwtStore.subscribe((data) => {
+      jwtItem = data;
+    });
   });
-  jwtStore.subscribe((data) => {
-    jwtItem = data;
-  });
+
   let mode;
   let search = "";
   let ajout = false;

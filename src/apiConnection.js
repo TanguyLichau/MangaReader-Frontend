@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:3000";
-const USER_NAME = localStorage.getItem("user");
 
 function fetchJSON(response) {
   return response.json();
@@ -24,6 +23,7 @@ export async function getJWT(user, pswd) {
 }
 
 export async function getAllMangas() {
+  const USER_NAME = localStorage.getItem("user");
   try {
     const response = await fetch(`${API_URL}/manga/${USER_NAME}`);
     return fetchJSON(response);
@@ -34,6 +34,7 @@ export async function getAllMangas() {
 
 export async function createManga(manga, jwt) {
   const JWT_TOKEN = jwt;
+  const USER_NAME = localStorage.getItem("user");
   try {
     const response = await fetch(`${API_URL}/manga`, {
       method: "POST",
